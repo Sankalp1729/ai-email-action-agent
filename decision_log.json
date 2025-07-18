@@ -1,0 +1,34 @@
+[
+  {
+    "sender": "alice@example.com",
+    "subject": "Urgent: Client meeting rescheduled",
+    "content": "Please update the calendar ASAP",
+    "action": "Forward",
+    "confidence": 0.67,
+    "reward": 0.5
+  },
+  {
+    "sender": "bob@example.com",
+    "subject": "Monthly Report",
+    "content": "Attached is the report",
+    "action": "Archive",
+    "confidence": 0.93,
+    "reward": 0.2
+  },
+  {
+    "sender": "carol@example.com",
+    "subject": "Quick question about project",
+    "content": "Can we connect today?",
+    "action": "Later",
+    "confidence": 0.75,
+    "reward": 0.3
+  },
+  {
+    "sender": "alice@example.com",
+    "subject": "Follow-up: Budget approvals",
+    "content": "Any updates?",
+    "action": "Forward",
+    "confidence": 0.8,
+    "reward": 0.5
+  }
+]

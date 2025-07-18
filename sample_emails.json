@@ -1,0 +1,22 @@
+[
+  {
+    "sender": "alice@example.com",
+    "subject": "Urgent: Client meeting rescheduled",
+    "content": "Please update the calendar ASAP"
+  },
+  {
+    "sender": "bob@example.com",
+    "subject": "Monthly Report",
+    "content": "Attached is the report"
+  },
+  {
+    "sender": "carol@example.com",
+    "subject": "Quick question about project",
+    "content": "Can we connect today?"
+  },
+  {
+    "sender": "alice@example.com",
+    "subject": "Follow-up: Budget approvals",
+    "content": "Any updates?"
+  }
+]
