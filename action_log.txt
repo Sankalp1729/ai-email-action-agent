@@ -1,0 +1,4 @@
+2025-07-19 09:50:26,736 - Email from: manager@company.com | Action: Reply | Confidence: 0.48 | Sentiment: POSITIVE | Reward: 2.47
+2025-07-19 09:50:29,819 - Email from: hr@company.com | Action: Later | Confidence: 0.41 | Sentiment: POSITIVE | Reward: 1.9
+2025-07-19 09:50:32,379 - Email from: teammate@company.com | Action: Forward | Confidence: 0.38 | Sentiment: NEGATIVE | Reward: 2.18
+2025-07-19 09:50:35,315 - Email from: alerts@bank.com | Action: Reply | Confidence: 0.31 | Sentiment: NEGATIVE | Reward: 2.23

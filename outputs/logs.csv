@@ -1,0 +1,9 @@
+Timestamp,Sender,Subject,Content,Action,Confidence,Sentiment,Reward,Reply
+2025-07-19 11:32:57,manager@company.com,Project Update,Please share the latest project status by EOD today.,mark as important,0.53,"('POSITIVE', 0.9960887432098389)",3.03,Marked as important: 'Project Update'
+2025-07-19 11:32:59,hr@company.com,Policy Update,We've updated the leave policy effective next month. Please review it.,forward,0.41,"('POSITIVE', 0.9849761128425598)",2.19,Forwarding this email regarding 'Policy Update' as it may require your attention.
+2025-07-19 11:33:02,teammate@company.com,Weekly Sync,Can we reschedule the weekly sync to Friday?,reply,0.45,"('NEGATIVE', 0.9988269209861755)",0.46,"Hi,
+
+Thanks for your email regarding weekly sync. I'll get back to you soon.
+
+Best regards,"
+2025-07-19 11:33:03,alerts@bank.com,Transaction Alert,"A transaction of ₹5,000 was made on your card ending with 1234.",mark as important,0.41,"('NEGATIVE', 0.9246644973754883)",0.99,Marked as important: 'Transaction Alert'

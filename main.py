@@ -1,68 +1,46 @@
-from email_reader import read_messages
-from message_classifier import classify_message
-from reward_model import calculate_reward
-from visualizer import (
-    plot_action_distribution,
-    plot_reward_curve,
-    plot_confidence_scores,
-    plot_sender_response_pattern
-)
-from dashboard import display_dashboard
-import json
-from collections import defaultdict
+import torch
+from classifier import classify_message
+from sentiment import analyze_sentiment
+from reward import compute_reward
+from reply_generator import generate_reply
+from email_reader import get_sample_messages
+from logger import log_to_csv
 
-# Step 1: Read messages from the sample JSON
-messages = read_messages()
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Device set to use {device}")
+print("🔍 AI Email Action Agent Started...\n")
 
-# Step 2: Initialize tracking structures
-decision_log = []
-action_distribution = defaultdict(int)
-reward_over_time = []
-confidence_scores = []
-sender_response = {}
+def main():
+    messages = get_sample_messages()
 
-# Step 3: Loop through messages and take actions
-for msg in messages:
-    decision = classify_message(msg)
-    reward = calculate_reward(msg, decision.action)
+    for idx, msg in enumerate(messages, 1):
+        print(f"\n📨 Message {idx}")
+        print(f"From: {msg['from']}")
+        print(f"Subject: {msg['subject']}")
+        print(f"Content: {msg['body']}")
 
-    # Log details
-    decision_log.append({
-        'sender': msg.sender,
-        'subject': msg.subject,
-        'content': msg.content,
-        'action': decision.action,
-        'confidence': decision.confidence,
-        'reward': reward
-    })
+        action, confidence = classify_message(msg["body"])
+        sentiment = analyze_sentiment(msg["body"])
+        reward = compute_reward(action, confidence, sentiment)
+        reply = generate_reply(action, msg)
 
-    action_distribution[decision.action] += 1
-    reward_over_time.append(reward)
-    confidence_scores.append(decision.confidence)
+        print(f"🔧 Action: {action}")
+        print(f"📊 Confidence: {round(confidence, 2)}")
+        print(f"❤️ Sentiment: {sentiment}")
+        print(f"🏅 Reward: {reward}")
+        print(f"✉️ Reply:\n{reply}")
 
-    # Track sender-based action pattern
-    sender = msg.sender
-    action = decision.action
-    if sender not in sender_response:
-        sender_response[sender] = {'Reply': 0, 'Later': 0, 'Forward': 0, 'Archive': 0}
-    sender_response[sender][action] += 1
+        # Log to CSV
+        log_to_csv({
+            "from": msg["from"],
+            "subject": msg["subject"],
+            "body": msg["body"],
+            "action": action,
+            "confidence": confidence,
+            "sentiment": sentiment,
+            "reward": reward,
+            "reply": reply
+        })
 
-# Step 4: Save decision log to JSON
-with open('decision_log.json', 'w') as f:
-    json.dump(decision_log, f, indent=2)
-print("✅ Decision log saved to 'decision_log.json'")
-
-# Step 5: Plot graphs
-plot_action_distribution(dict(action_distribution))
-plot_reward_curve(reward_over_time)
-plot_confidence_scores(confidence_scores)
-plot_sender_response_pattern(sender_response)
-
-# Step 6: Display dashboard
-stats = {
-    'action_distribution': dict(action_distribution),
-    'reward_over_time': reward_over_time,
-    'confidence_scores': confidence_scores,
-    'sender_response': sender_response
-}
-display_dashboard(stats)
+if __name__ == "__main__":
+    main()
