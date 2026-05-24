@@ -1,12 +1,18 @@
 # MailMind AI
 
-![CI](https://github.com/Sankalp1729/ai-email-action-agent/actions/workflows/ci.yml/badge.svg)
-![python-badge](https://img.shields.io/badge/python-3.11%2B-blue)
-![streamlit-badge](https://img.shields.io/badge/streamlit-ready-orange)
-
 AI-powered inbox co-pilot for intelligent email prioritization, sentiment analysis, workflow automation, and actionable decision support.
 
-MailMind AI provides an interactive Streamlit dashboard that helps users prioritize and act on important messages using lightweight AI workflows (lazy-loaded models and heuristics for low-memory environments).
+## Live Demo
+https://mailmind-ai.streamlit.app
+
+## Key Features
+- AI-driven inbox prioritization
+- Sentiment analysis
+- Reward-based decision scoring
+- Workflow visualization
+- Priority inbox insights
+- AI-generated recommendations
+- Risk-focused email analysis
 
 ## Table of contents
 - Features
