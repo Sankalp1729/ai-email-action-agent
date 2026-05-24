@@ -1,4 +1,9 @@
-import torch
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except Exception:
+    torch = None
+    TORCH_AVAILABLE = False
 from collections import Counter
 from statistics import mean
 import json
@@ -16,7 +21,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+if TORCH_AVAILABLE:
+    try:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    except Exception:
+        device = "cpu"
+else:
+    device = "cpu"
 
 PROJECT_TITLE = "MailMind AI"
 PROJECT_TAGLINE = "AI inbox co-pilot that prioritizes communication, speeds decisions, and reduces overload."
