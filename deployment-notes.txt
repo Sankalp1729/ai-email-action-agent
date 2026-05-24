@@ -1,0 +1,5 @@
+Deployment Notes
+1. Install dependencies from requirements.txt.
+2. Run the main workflow with Python from the project root.
+3. Keep generated assets in outputs/ and screenshots/.
+4. Store static images in assets/ and data files in data/.

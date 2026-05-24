@@ -1,0 +1,5 @@
+Feature Roadmap
+1. Improve email classification accuracy.
+2. Expand reply generation templates.
+3. Add richer dashboards and visual summaries.
+4. Add export and reporting options.
