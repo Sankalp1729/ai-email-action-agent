@@ -1,24 +1,25 @@
-streamlit
-pandas
-numpy
-matplotlib
-plotly
+streamlit==1.57.0
+pandas==3.0.3
+numpy==2.4.6
+matplotlib==3.10.9
+plotly==6.7.0
 
 # NLP / models
-transformers
+transformers==5.9.0
 
-# Torch is optional (large binary). If you need local model inference, uncomment the following line:
-# torch
+# Torch is optional (large binary). If you need local model inference, uncomment the following line
+# and install a wheel compatible with your environment. Cloud hosts often struggle with torch.
+# torch==2.12.0
 
 # Gmail integration
-google-auth
-google-auth-oauthlib
-google-api-python-client
+google-auth==2.53.0
+google-auth-oauthlib==1.4.0
+google-api-python-client==2.196.0
 
 # Image handling
-Pillow
+Pillow==12.2.0
 
 # Utilities
-tqdm
-seaborn
-cryptography
+tqdm==4.66.1
+seaborn==0.13.2
+cryptography==41.0.3

@@ -1,101 +1,106 @@
 # MailMind AI
 
-AI inbox co-pilot that prioritizes communication, speeds decisions, and reduces overload.
+![CI](https://github.com/Sankalp1729/ai-email-action-agent/actions/workflows/ci.yml/badge.svg)
+![python-badge](https://img.shields.io/badge/python-3.11%2B-blue)
+![streamlit-badge](https://img.shields.io/badge/streamlit-ready-orange)
 
----
+AI-powered inbox co-pilot for intelligent email prioritization, sentiment analysis, workflow automation, and actionable decision support.
 
-## Problem Statement
+MailMind AI provides an interactive Streamlit dashboard that helps users prioritize and act on important messages using lightweight AI workflows (lazy-loaded models and heuristics for low-memory environments).
 
-Modern users receive a high volume of emails daily, making it difficult to prioritize important communication efficiently.
-
----
-
-## Solution
-
-MailMind AI uses intelligent AI workflows to:
-- classify emails,
-- analyze sentiment,
-- prioritize actions,
-- generate summaries,
-- recommend responses,
-- visualize inbox insights.
+## Table of contents
+- Features
+- Screenshots
+- Architecture
+- Getting Started
+- Tech Stack
+- Contributing
 
 ---
 
 ## Features
 
-- AI email classification
-- Sentiment analysis
-- Reward-based prioritization
-- Suggested responses
-- Workflow visualization
-- Dashboard analytics
-- Steganography integration
-
----
-
-## AI Concepts Used
-
-- NLP
-- Text classification
-- Sentiment analysis
-- Reinforcement learning concepts
-- Intelligent automation
-
----
-
-## Dashboard Sections
-
-### Overview
-Displays inbox metrics and analytics.
-
-### Inbox Analysis
-Visualizes action distribution and sentiment trends.
-
-### Email Cards
-Detailed message-level AI insights.
-
-### Workflow
-Explains the AI decision pipeline.
-
----
-
-## Tech Stack
-
-- Python
-- Streamlit
-- Matplotlib / Plotly
-- JSON
-- NLP libraries
-
----
-
-## Future Improvements
-
-- Gmail API integration
-- Real-time email syncing
-- Personalized AI assistant
-- Multi-user collaboration
-- Cloud deployment
-- AI-powered smart scheduling
-
----
-
-## Product Thinking
-
-This project focuses on reducing information overload and improving productivity through intelligent email prioritization and AI-driven workflow automation.
+- Action classification (priority / reply / review)
+- Sentiment analysis and visual trends
+- Priority Inbox and urgent message highlighting
+- AI-suggested replies and decision logging
+- Interactive Plotly charts and metrics
+- Gmail inbox loader (OAuth flow)
 
 ---
 
 ## Screenshots
 
-(Add your screenshots here)
+Overview dashboard:
+
+![Overview](assets/email_summary_chart.png)
+
+Priority inbox and message cards:
+
+![Logo](assets/ai_email_logo.png)
+
+Hidden / sample data preview:
+
+![Sample Data](assets/hidden_email_data.png)
 
 ---
 
-## Deployment
+## Architecture
 
-Coming soon.
+High-level components and data flow:
+
+```mermaid
+graph LR
+	U[User] --> S[Streamlit UI]
+	S --> A[App Controller]
+	A --> C[classifier.py]
+	A --> Sent[sentiment.py]
+	A --> G[gmail_reader.py]
+	A --> R[reply_generator.py]
+	C --> HF[HuggingFace models (lazy-load)]
+	G --> GoogleAPI[Google Gmail API]
+	A --> Data[data/*.json]
+```
+
+Notes:
+- Models are lazy-loaded at first use to avoid startup memory issues on Windows; small heuristics are provided as fallbacks.
+- Gmail integration requires `credentials.json` (OAuth) placed in the project root; `token.json` will be generated on first auth.
+
+---
+
+## Getting Started
+
+1. Create a Python environment (recommended):
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate   # Windows: .venv\\Scripts\\activate
+pip install -r requirements.txt
+```
+
+2. Run the dashboard:
+
+```bash
+streamlit run main.py
+```
+
+3. (Optional) To enable Gmail loader, add `credentials.json` to the project root and follow the on-screen OAuth prompt.
+
+---
+
+## Tech Stack
+
+- Python 3.11+
+- Streamlit
+- Plotly / Matplotlib (visuals)
+- Transformers (optional; lazy-loaded)
+- Google API client (optional for Gmail)
+
+---
+
+## Contributing
+
+PRs welcome — open an issue or a pull request with suggested changes. For code style, run `black` and keep changes focused.
 
 ---
 
