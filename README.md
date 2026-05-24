@@ -35,6 +35,10 @@ https://mailmind-ai.streamlit.app
 
 ---
 
+## Live Demo
+
+https://mailmind-ai.streamlit.app
+
 ## Screenshots
 
 Overview dashboard:
@@ -48,6 +52,11 @@ Priority inbox and message cards:
 Hidden / sample data preview:
 
 ![Sample Data](assets/hidden_email_data.png)
+
+
+## Product Vision
+
+MailMind AI is designed as an intelligent inbox co-pilot that reduces communication overload through AI-powered prioritization, sentiment analysis, workflow automation, and actionable decision support.
 
 ---
 
@@ -109,7 +118,35 @@ streamlit run main.py
 PRs welcome — open an issue or a pull request with suggested changes. For code style, run `black` and keep changes focused.
 
 ---
+## Dashboard Preview
 
+### Overview Dashboard
+
+![Overview](screenshots/dashboard-overview.png)
+
+---
+
+### Inbox Analysis
+
+![Inbox Analysis](screenshots/inbox-analysis.png)
+
+---
+
+### Priority Inbox
+
+![Priority Inbox](screenshots/priority-inbox.png)
+
+---
+
+### Email Cards
+
+![Email Cards](screenshots/email-cards.png)
+
+---
+
+### Workflow Diagram
+
+![Workflow Diagram](screenshots/workflow-diagram.png)
 ## Author
 
 Sankalp Pingalwad
